@@ -11,8 +11,12 @@ var http = require('http');
 /**
  * Get port from environment and store in Express.
  */
+// ----------------- Local Host -----------------//
+var port = normalizePort(process.env.PORT || '5000');
 
-var port = normalizePort(process.env.PORT || '3000');
+// ----------------- Main Environment ----------------- //
+// var port = process.env.server_port || "8080";
+
 app.set('port', port);
 
 /**
@@ -58,9 +62,7 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -83,8 +85,31 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log("");
+  console.log(
+      "------------------------------ WELCOME TO 360 PRO ------------------------------"
+  );
+  console.log("");
+
+  console.log(
+      "******   ******   ******            *******    ******   *******"
+  );
+  console.log("     *   *        *    *            *     *    *    *   *     *");
+  console.log(
+      "  ****   ******   *    *            *******    ******   *     *"
+  );
+  console.log("     *   *    *   *    *            *          *  *     *     *");
+  console.log(
+      "******   ******   ******            *          *    *   *******"
+  );
+  console.log("");
+  console.log(
+      "------------------------------ WELCOME TO 360 PRO ------------------------------"
+  );
+
+  console.log("Listening on ->");
+  console.log(bind);
+  console.log(port);
 }
