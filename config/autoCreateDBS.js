@@ -1,4 +1,3 @@
-var Category = require('../models/Category');
 var Admin = require('../models/Admin');
 
 
