@@ -5,36 +5,6 @@ var Admin = require('../models/Admin');
 function autoCreateDBS() {
     console.log(" -------------------------------- autoCreateDBS -------------------------------- ");
 
-    Category.find({}, function (AErr, AData) {
-        if (AErr) {
-            console.log("Getting issue in Category", Aerr);
-        } else {
-            if (AData.length) {
-                console.log("Category already Created", AData.length);
-            } else {
-                Category.insertMany([
-                    { categoryName: "GENERAL" },
-                    { categoryName: "INTRO" },
-                    { categoryName: "GRAMMAR" },
-                    { categoryName: "SPELLING" },
-                    { categoryName: "Catagory 1" },
-                    { categoryName: "Catagory 2" },
-                    { categoryName: "Catagory 3" },
-                    { categoryName: "Catagory 4" }
-                ], function (Uerr, UData) {
-                    if (Uerr) {
-                        console.log("Getting issur in create Category");
-                    } else {
-                        console.log("Category created successfully");
-                    }
-                });
-            }
-        }
-    })
-
-
-
-
     Admin.find({}, function (err, Data) {
         if (err) {
             console.log("Getting issur in create Admin", err);
