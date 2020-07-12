@@ -43,22 +43,22 @@ router.post("/addTest", function (req, res) {
                                     email: req.body.email,
                                     password: req.body.password,
                                 });
-                                // userDetails.save(function (userErr, userResult) {
-                                //     if (userErr || !userResult) {
-                                //         res.json({ status: "ERROR", msg: "Getting issue." });
-                                //     } else {
-                                //         var _id = userResult._id;
-                                //         var from = '"Essays with Edukemy" <essays@edukemy.com>';
-                                //         var to = req.body.email;
-                                //         var sub = "Reset Password for EduKemy";
-                                //         var userName = req.body.managerName;
-                                //         sendEmail(to, from, _id, sub, userName);
-                                //         res.json({
-                                //             status: "OK",
-                                //             message: "Manager saved successfully"
-                                //         });
-                                //     }
-                                // });
+                                userDetails.save(function (userErr, userResult) {
+                                    if (userErr || !userResult) {
+                                        res.json({ status: "ERROR", msg: "Getting issue." });
+                                    } else {
+                                        // var _id = userResult._id;
+                                        // var from = '"Essays with Edukemy" <essays@edukemy.com>';
+                                        // var to = req.body.email;
+                                        // var sub = "Reset Password for EduKemy";
+                                        // var userName = req.body.managerName;
+                                        // sendEmail(to, from, _id, sub, userName);
+                                        res.json({
+                                            status: "OK",
+                                            message: "Manager saved successfully"
+                                        });
+                                    }
+                                });
                             }
                         });
                     // }
@@ -72,19 +72,19 @@ router.post("/addTest", function (req, res) {
     }
 });
 
-// router.get("/getManagers", function (req, res) {
-//     Manager.find({ isDeleted: false }, function (err, Data) {
-//         if (err) {
-//             res.json({ status: "ERROR", msg: "Managers details not found." });
-//         } else {
-//             res.json({
-//                 status: "ok",
-//                 msg: "Managers details get successfully",
-//                 data: Data
-//             });
-//         }
-//     });
-// });
+router.get("/getAllTest", function (req, res) {
+    Test.find({ isDeleted: false }, function (err, Data) {
+        if (err) {
+            res.json({ status: "ERROR", msg: "Managers details not found." });
+        } else {
+            res.json({
+                status: "ok",
+                msg: "Managers details get successfully",
+                data: Data
+            });
+        }
+    });
+});
 
 // router.post("/getManagerById", function (req, res) {
 //     if (req.body._id) {
