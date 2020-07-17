@@ -55,8 +55,9 @@ router.post("/addTest", function (req, res) {
                                         // sendEmail(to, from, _id, sub, userName);
                                         res.json({
                                             status: "OK",
-                                            message: "Manager saved successfully"
+                                            message: "Add test successful"
                                         });
+                                        console.log("Add test successful")
                                     }
                                 });
                             }
@@ -74,6 +75,7 @@ router.post("/addTest", function (req, res) {
 
 router.get("/getAllTest", function (req, res) {
     Test.find({ isDeleted: false }, function (err, Data) {
+        console.log(res.Data)
         if (err) {
             res.json({ status: "ERROR", msg: "Managers details not found." });
         } else {
