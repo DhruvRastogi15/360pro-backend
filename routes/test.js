@@ -43,10 +43,7 @@ router.post("/addTest", function (req, res) {
                                     email: req.body.email,
                                     password: req.body.password,
                                 });
-                                userDetails.save(function (userErr, userResult) {
-                                    if (userErr || !userResult) {
-                                        res.json({ status: "ERROR", msg: "Getting issue." });
-                                    } else {
+
                                         // var _id = userResult._id;
                                         // var from = '"Essays with Edukemy" <essays@edukemy.com>';
                                         // var to = req.body.email;
@@ -58,8 +55,6 @@ router.post("/addTest", function (req, res) {
                                             message: "Add test successful"
                                         });
                                         console.log("Add test successful")
-                                    }
-                                });
                             }
                         });
                     // }
@@ -73,15 +68,15 @@ router.post("/addTest", function (req, res) {
     }
 });
 
-router.get("/getAllTest", function (req, res) {
-    Test.find({ isDeleted: false }, function (err, Data) {
-        console.log(res.Data)
+router.get("/getTest", function (req, res) {
+    Test.find(function (err, Data) {
+        console.log(Data)
         if (err) {
-            res.json({ status: "ERROR", msg: "Managers details not found." });
+            res.json({ status: "ERROR", msg: "\ details not found." });
         } else {
             res.json({
                 status: "ok",
-                msg: "Managers details get successfully",
+                msg: "details get successfully",
                 data: Data
             });
         }

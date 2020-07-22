@@ -8,11 +8,8 @@ var testSchema = new mongoose.Schema(
     password: {
       type: String
     }
-  },
-  {
-    timestamps: true
   }
 );
 
-var test = mongoose.model("tests", testSchema);
+var test = mongoose.model("test", testSchema);
 module.exports = test;
